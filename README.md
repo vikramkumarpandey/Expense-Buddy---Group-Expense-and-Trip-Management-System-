@@ -9,7 +9,7 @@ A compiler design based project for:
 * converting queries into relational algebra
 * visualizing AST and execution plan using Graphviz
 
----
+
 
 ## Tech stack
 
@@ -18,7 +18,7 @@ A compiler design based project for:
 * Syntax Analysis: Bison
 * Visualization: Graphviz
 
----
+
 
 ## Project structure
 
@@ -32,7 +32,7 @@ A compiler design based project for:
 * `schema.txt` → Table and column definitions
 * `main.c` → Main driver program
 
----
+
 
 ## How to run
 
@@ -45,7 +45,7 @@ Make sure you have:
 * GCC
 * Graphviz
 
----
+
 
 ### 2) Compile
 
@@ -65,7 +65,7 @@ gcc lex.yy.c parser.tab.c ast.c semantic.c execution_plan.c relational.c graphvi
 
 Enter a SQL query (end with `;` optional).
 
----
+
 
 ## Features
 
@@ -78,7 +78,7 @@ Enter a SQL query (end with `;` optional).
 * Supports basic SQL queries (SELECT, INSERT, UPDATE, DELETE)
 * Handles errors for invalid queries and schema mismatches
 
----
+
 
 ## Notes
 
@@ -87,6 +87,3 @@ Enter a SQL query (end with `;` optional).
 * Supports single-table queries (joins and nested queries not fully implemented yet)
 * Graphviz must be installed for visualization output
 
-
-* I can add **screenshots section (AST.png, plan.png)**
-* or make it **look like top GitHub repo (badges + styling)** 🚀
