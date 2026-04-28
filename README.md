@@ -1,64 +1,92 @@
-# Expense Buddy
 
-A student full-stack project for:
-- personal expense tracking
-- budget tracking
-- trip planning
-- group expense splitting
-- settlement suggestions
-- post-trip ratings
-- global rating board
+# SQL Query Analysis and Execution Visualization
+
+A compiler design based project for:
+
+* understanding how SQL queries are processed internally
+* visualizing query structure using AST
+* generating execution plan step-by-step
+* converting queries into relational algebra
+* visualizing AST and execution plan using Graphviz
+
+---
 
 ## Tech stack
-- Frontend: React + Vite + Tailwind CSS
-- Backend: Node.js + Express
-- Database: MySQL
-- Authentication: intentionally skipped for Phase 1 / Phase 2
-- Hosting: intentionally skipped
+
+* Language: C
+* Lexical Analysis: Flex
+* Syntax Analysis: Bison
+* Visualization: Graphviz
+
+---
 
 ## Project structure
-- `frontend/` React app
-- `backend/` Express API
-- `database/` MySQL schema and seed
+
+* `lexer.l` → Tokenization using Flex
+* `parser.y` → Grammar rules using Bison
+* `ast.c / ast.h` → AST creation and handling
+* `semantic.c` → Schema-based validation
+* `execution_plan.c` → Execution steps generation
+* `relational.c` → Relational algebra conversion
+* `graphviz.c` → AST & plan visualization
+* `schema.txt` → Table and column definitions
+* `main.c` → Main driver program
+
+---
 
 ## How to run
 
-### 1) MySQL
-Create a MySQL database named `expense_buddy`.
+### 1) Install dependencies
 
-Then run:
-```sql
-SOURCE database/schema.sql;
-SOURCE database/seed.sql;
-```
+Make sure you have:
 
-### 2) Backend
+* Flex
+* Bison
+* GCC
+* Graphviz
+
+---
+
+### 2) Compile
+
 ```bash
-cd backend
-npm install
-npm run dev
+flex lexer.l
+bison -d parser.y
+gcc lex.yy.c parser.tab.c ast.c semantic.c execution_plan.c relational.c graphviz.c main.c -o sql_analyzer
 ```
 
-Create `.env` in `backend/`:
-```env
-PORT=5000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=expense_buddy
-```
+---
 
-### 3) Frontend
+### 3) Run
+
 ```bash
-cd frontend
-npm install
-npm run dev
+./sql_analyzer
 ```
 
-Frontend runs on Vite default port.
-Backend runs on port 5000.
+Enter a SQL query (end with `;` optional).
+
+---
+
+## Features
+
+* Lexical and Syntax Analysis using Flex and Bison
+* AST (Abstract Syntax Tree) Generation
+* Semantic Analysis using schema validation
+* Execution Plan Generation (Scan, Filter, Project)
+* Relational Algebra Representation
+* Graphviz Visualization (AST & Execution Plan)
+* Supports basic SQL queries (SELECT, INSERT, UPDATE, DELETE)
+* Handles errors for invalid queries and schema mismatches
+
+---
 
 ## Notes
-- This version uses mock-friendly but real API-connected structure.
-- JWT auth is intentionally not included yet.
-- Code is kept clean and student-friendly.
+
+* The project focuses on explaining internal query processing rather than executing real database operations
+* Designed mainly for learning compiler design concepts
+* Supports single-table queries (joins and nested queries not fully implemented yet)
+* Graphviz must be installed for visualization output
+
+
+* I can add **screenshots section (AST.png, plan.png)**
+* or make it **look like top GitHub repo (badges + styling)** 🚀
